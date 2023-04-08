@@ -13,4 +13,4 @@ jobs:
         uses: actions/checkout@v3
       - name: run tests
         run: |
-          bash run_tests.sh
+          sh run_tests.sh
