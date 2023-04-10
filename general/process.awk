@@ -9,10 +9,10 @@ function process_query(query, referential) {
             keyword::handle_use(i)
         } 
         else if ($i == "drop") {
-            print "drop"
-            word_index = i + 2
-            word = $word_index
             keyword::handle_drop(i, referential)
+        }
+        else if ($i == "create") {
+            keyword::handle_create(i, referential)
         }
     }
 }

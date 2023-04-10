@@ -13,3 +13,9 @@ function handle_drop(drop_word_index, referential) {
     word = $word_index
     diagram::handle_referential(word, referential)
 }
+
+function handle_create(create_word_index, referential) {
+    word_index = create_word_index + 2
+    word = $word_index
+    diagram::handle_referential(word, referential)
+}
