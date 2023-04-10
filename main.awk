@@ -1,7 +1,12 @@
-@include "general/clean.awk"
+@include "general/process.awk"
 
 BEGIN {
-    print var
-    cleaned_query = cleaner::clean_query(var)
-    print cleaned_query "final"
+    FS = " "
+    RS = ";"
+}
+{
+    process::process_query($0, referential)
+}
+END {
+    process::print_referential(referential)
 }
