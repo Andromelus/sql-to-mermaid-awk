@@ -8,4 +8,8 @@ exit_info() {
 
 trap 'exit_info' EXIT
 
-echo "" | awk -f tests/scripts/test_clean.awk
+for file in ./tests/scripts/*.awk; do
+    echo "launching $file"
+    echo "" | awk -f $file
+done
+# echo "" | awk -f tests/scripts/test_clean.awk
