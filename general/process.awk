@@ -19,7 +19,10 @@ function process_query(query, referential, unknown_target_buffer, links, withs) 
             keyword::handle_from(i, referential, unknown_target_buffer, links, withs)
         }
         else if ($i == "as(") {
-            keyword::handle_cte(i, referential, unknown_target_buffer, links, withs)
+            keyword::handle_cte(i, withs)
+        }
+        else if ($i == "join") {
+            keyword::handle_join(i, referential, unknown_target_buffer, links, withs)
         }
     }
 }
