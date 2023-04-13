@@ -17,21 +17,8 @@ function process_query(query, referential, unknown_target_buffer, links, withs) 
         else if ($i == "from") {
             keyword::handle_from(i, referential, unknown_target_buffer, links, withs)
         }
+        else if ($i == "with") {
+            keyword::handle_cte(i, referential, unknown_target_buffer, links, withs)
+        }
     }
-}
-
-function print_referential(referential) {
-    print "referential -----"
-    for (key in referential) {
-        print key ": " referential[key]
-    }
-    print "referential -----"
-}
-
-function print_links(links) {
-    print "links -----"
-    for (key in links) {
-        print key ": " links[key]
-    }
-    print "links -----"
 }
