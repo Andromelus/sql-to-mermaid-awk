@@ -2,7 +2,7 @@
 
 function clean_query(query) {
     query = tolower(query)
-    gsub("\n", "", query)
+    gsub("\n", " ", query)
     gsub("\\(", " ( ", query)
     gsub("\\)", " ) ", query)
     gsub("{", "", query)

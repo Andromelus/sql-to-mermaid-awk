@@ -25,7 +25,6 @@ function print_referential(referential) {
     for (key in referential) {
         print key ": " referential[key]
     }
-    print "referential -----"
 }
 
 function print_links(links) {
@@ -33,7 +32,6 @@ function print_links(links) {
     for (key in links) {
         print key ": " links[key]
     }
-    print "links -----"
 }
 
 function print_withs(withs) {
@@ -41,5 +39,4 @@ function print_withs(withs) {
     for (key in withs) {
         print key ": " withs[key]
     }
-    print "withs -----"
 }
