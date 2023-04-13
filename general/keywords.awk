@@ -46,14 +46,8 @@ function handle_from(from_word_index, referential, unknown_target_buffer, links,
 }
 
 function handle_cte(cte_word_index, referential, unknown_target_buffer, links, withs) {
-    if ($cte_word_index == "with") {
-        word_index = cte_word_index + 1
-        word = $word_index
-        if (word != "serdeproperties") {
-            diagram::append_to_withs(word, withs)
-        } else {
-            print "ERROR - got unexpected value "word
-            exit 1
-        }
-    }
+    # the name of the cte is before the word
+    word_index = cte_word_index - 1
+    word = $word_index
+    diagram::append_to_withs(word, withs)
 }
