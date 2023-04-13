@@ -4,7 +4,6 @@
 
 function process_query(query, referential, unknown_target_buffer, links, withs) {
     $0 = cleaner::clean_query(query)
-    print $0
     for (i = 1; i <= NF; i++) {
         if ($i == "use") {
             keyword::handle_use(i)
@@ -23,6 +22,9 @@ function process_query(query, referential, unknown_target_buffer, links, withs) 
         }
         else if ($i == "join") {
             keyword::handle_join(i, referential, unknown_target_buffer, links, withs)
+        }
+        else if ($i == "insert") {
+            keyword::handle_insert(i, referential)
         }
     }
 }
