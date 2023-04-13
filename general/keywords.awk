@@ -55,3 +55,14 @@ function handle_cte(cte_word_index, withs) {
 function handle_join(join_word_index, referential, unknown_target_buffer, links, withs) {
     handle_from(join_word_index, referential, unknown_target_buffer, links, withs)
 }
+
+function handle_insert(insert_word_index, referential) {
+    word = utils::find_next_meaningful_word(insert_word_index, "")
+    len = split(word, a, ".")
+
+    if (len == 1) {
+        word = diagram::get_default_database() "." word
+    }
+    diagram::set_element_being_created(word)
+    diagram::handle_referential(word, referential)
+}
