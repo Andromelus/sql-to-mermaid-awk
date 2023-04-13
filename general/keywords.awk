@@ -45,9 +45,13 @@ function handle_from(from_word_index, referential, unknown_target_buffer, links,
     }
 }
 
-function handle_cte(cte_word_index, referential, unknown_target_buffer, links, withs) {
+function handle_cte(cte_word_index, withs) {
     # the name of the cte is before the word
     word_index = cte_word_index - 1
     word = $word_index
     diagram::append_to_withs(word, withs)
+}
+
+function handle_join(join_word_index, referential, unknown_target_buffer, links, withs) {
+    handle_from(join_word_index, referential, unknown_target_buffer, links, withs)
 }
