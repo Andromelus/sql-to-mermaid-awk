@@ -29,16 +29,31 @@ function handle_create(create_word_index, referential) {
 function handle_from(from_word_index, referential, unknown_target_buffer, links, withs) {
     word_index = from_word_index + 1
     word = $word_index
-    print word "word in from"
     if (word != "(") {
         len = split(word, a, ".")
-        # if no dot in word
-        if (len == 1) {
+        # if dot in word
+        if (len == 2) {
             diagram::handle_referential(word, referential)
             diagram::handle_link(word, links, unknown_target_buffer)
-        } else if (utils::is_key_of_array(word, withs) == 0) {
-            diagram::handle_referential(word, referential)
-            diagram::handle_link(word, links, unknown_target_buffer)
+        } else {
+            is_in_with = utils::is_unique_value_in_array(word, withs)
+            if (is_in_with == 0) {
+                diagram::handle_referential(word, referential)
+                diagram::handle_link(word, links, unknown_target_buffer)
+            }
+        }
+    }
+}
+
+function handle_cte(cte_word_index, referential, unknown_target_buffer, links, withs) {
+    if ($cte_word_index == "with") {
+        word_index = cte_word_index + 1
+        word = $word_index
+        if (word != "serdeproperties") {
+            diagram::append_to_withs(word, withs)
+        } else {
+            print "ERROR - got unexpected value "word
+            exit 1
         }
     }
 }

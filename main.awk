@@ -1,4 +1,5 @@
 @include "general/process.awk"
+@include "general/utils.awk"
 
 BEGIN {
     FS = " "
@@ -14,6 +15,7 @@ BEGIN {
     process::process_query($0, referential, unknown_target_buffer, links, withs)
 }
 END {
-    process::print_referential(referential)
-    process::print_links(links)
+    utils::print_referential(referential)
+    utils::print_links(links)
+    utils::print_withs(withs)
 }

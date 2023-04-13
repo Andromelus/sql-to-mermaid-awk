@@ -18,3 +18,28 @@ function is_unique_value_in_array(value, array) {
     }
     return 0
 }
+
+
+function print_referential(referential) {
+    print "referential -----"
+    for (key in referential) {
+        print key ": " referential[key]
+    }
+    print "referential -----"
+}
+
+function print_links(links) {
+    print "links -----"
+    for (key in links) {
+        print key ": " links[key]
+    }
+    print "links -----"
+}
+
+function print_withs(withs) {
+    print "withs -----"
+    for (key in withs) {
+        print key ": " withs[key]
+    }
+    print "withs -----"
+}
