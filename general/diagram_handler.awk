@@ -27,6 +27,11 @@ function append_to_unknown_target_buffer(value, unknown_target_buffer) {
     unknown_target_buffer[position] = value
 }
 
+function append_to_withs(value, withs) {
+    position = length(withs) + 1
+    withs[position] = value
+}
+
 # Update the referential with a new table. If the word contains a dot, the text
 # before the dot is considered to be the database name, the text after the dot
 # is considered as the table name. Otherwise, uses the default_database value
