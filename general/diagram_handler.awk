@@ -3,7 +3,8 @@
 # informations. It manages the following variables:
 # - referential: a multidimensional array like: referential[db] = table1,table2
 #   , etc. Which contains the databases name and the tables contained into it
-# - default_database: a string representing the name of the default database 
+# - default_database: a string representing the name of the default database
+@include "general/utils"
 
 function set_default_database(value) {
     default_database = value
@@ -11,6 +12,19 @@ function set_default_database(value) {
 
 function get_default_database() {
     return default_database
+}
+
+function set_element_being_created(value) {
+    element_being_created = value
+}
+
+function get_element_being_created() {
+    return element_being_created
+}
+
+function append_to_unknown_target_buffer(value, unknown_target_buffer) {
+    position = length(unknown_target_buffer) + 1
+    unknown_target_buffer[position] = value
 }
 
 # Update the referential with a new table. If the word contains a dot, the text
@@ -35,4 +49,32 @@ function handle_referential(word, referential) {
     } else {
         referential[database] = referential[database] "," table
     }
+}
+
+# Update the links array. The array has the following structure:
+# links[db.table] = [db1.table1, db2.table2] which means:
+# db.table is created using db1.table1 and db2.table2
+function handle_link(word, links, unknown_target_buffer) {
+    len = split(word, a, ".")
+    if (len == 1) {
+        word = get_default_database() "." word
+    }
+
+    if (get_element_being_created() == "") {
+        append_to_unknown_target_buffer(word, unknown_target_buffer)
+        return
+    }
+    # TODO useful ? Default value is empty string
+    if (utils::is_key_of_array(get_element_being_created(), links) == 0) {
+        links[get_element_being_created()] = ""
+    }
+
+    len = split(links[get_element_being_created()], a, word)
+    if (len == 0) {
+        links[get_element_being_created()] =  word
+    }
+    if (len == 1) {
+        links[get_element_being_created()] = links[get_element_being_created()] "," word
+    }
+
 }

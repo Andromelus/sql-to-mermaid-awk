@@ -7,8 +7,8 @@ exit_info() {
 }
 
 trap 'exit_info' EXIT
-
-for file in ./tests/scripts/*.awk; do
+set -e
+for file in ./tests/scripts/test*.awk; do
     echo "launching $file"
     echo "" | awk -f $file
 done
