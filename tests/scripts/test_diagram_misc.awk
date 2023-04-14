@@ -15,4 +15,6 @@ END {
     array[2] = "tititutu"
     assert::assert(utils::is_unique_value_in_array("titi", array) == 1)
     assert::assert(utils::is_unique_value_in_array("tutu", array) == 0)
+    assert::print_stats()
+
 }

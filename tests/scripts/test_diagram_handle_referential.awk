@@ -15,4 +15,6 @@ END {
     diagram::handle_referential("other_db.table2", referential)
     assert::assert(referential["default_db"] == "table1,table2", "handle ref new db")
     assert::assert(referential["other_db"] == "table2", "handle ref new db")
+    assert::print_stats()
+
 }

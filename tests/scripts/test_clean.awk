@@ -50,4 +50,6 @@ END {
     assert::assert(cleaner::clean_query(rstrip) == "---", "rstrip")
 
     assert::assert(cleaner::clean_query(as) == "as(", "as")
+    assert::print_stats()
+
 }
