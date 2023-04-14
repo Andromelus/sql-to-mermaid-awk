@@ -31,4 +31,6 @@ END {
     diagram::set_element_being_created("database.toto")
     diagram::handle_link("database.table2", links, unknown_target_buffer)
     assert::assert(links["database.toto"] == "database.table2")
+    assert::print_stats()
+
 }

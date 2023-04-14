@@ -22,4 +22,6 @@ END {
 
     diagram::append_to_withs("titi", withs)
     assert::assert(withs[2] == "titi", "set in withs")
+    assert::print_stats()
+
 }
