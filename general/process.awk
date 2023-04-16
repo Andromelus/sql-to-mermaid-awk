@@ -30,20 +30,21 @@ function process_query(query, referential, unknown_target_buffer, links, withs) 
 }
 
 function generate(referential, links) {
-    print "graph LR"
+    d= "graph LR\n"
     for (key in referential) {
-        print "subgraph "key
+        d = d "subgraph "key"\n"
         split(referential[key], values, ",")
         for (v_index in values) {
-            print key"."values[v_index]"("values[v_index]")"
+            d = d key"."values[v_index]"("values[v_index]")\n"
         }
-        print "end"
+        d = d "end\n"
     }
     
     for (target in links) {
         split(links[target], sources, ",")
         for (s_index in sources) {
-            print sources[s_index] "-->"  target 
+            d = d sources[s_index] "-->"  target "\n"
         }
     }
+    return d
 }

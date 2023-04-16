@@ -15,7 +15,8 @@ BEGIN {
     process::process_query($0, referential, unknown_target_buffer, links, withs)
 }
 END {
-    process::generate(referential, links)
+    d = process::generate(referential, links)
+    print d
     # utils::print_referential(referential)
     # utils::print_links(links)
     # utils::print_withs(withs)
