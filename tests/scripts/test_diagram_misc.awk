@@ -1,4 +1,4 @@
-@include "general/utils.awk"
+@include "src/main/utils.awk"
 @include "tests/assert.awk"
 
 BEGIN {

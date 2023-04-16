@@ -1,6 +1,6 @@
 @namespace "keyword"
-@include "general/diagram_handler.awk"
-@include "general/utils.awk"
+@include "src/main/diagram_handler.awk"
+@include "src/main/utils.awk"
 
 function handle_use(word_index) {
     db_index = word_index + 1

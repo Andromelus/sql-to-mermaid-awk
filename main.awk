@@ -1,5 +1,5 @@
-@include "general/process.awk"
-@include "general/utils.awk"
+@include "src/main/process.awk"
+@include "src/main/utils.awk"
 
 BEGIN {
     FS = " "

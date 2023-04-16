@@ -1,6 +1,6 @@
-@include "general/keywords.awk"
-@include "general/diagram_handler.awk"
-@include "general/utils.awk"
+@include "src/main/keywords.awk"
+@include "src/main/diagram_handler.awk"
+@include "src/main/utils.awk"
 @include "tests/assert.awk"
 
 BEGIN {

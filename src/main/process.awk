@@ -1,6 +1,6 @@
 @namespace "process"
-@include "general/clean.awk"
-@include "general/keywords.awk"
+@include "src/main/clean.awk"
+@include "src/main/keywords.awk"
 
 function process_query(query, referential, unknown_target_buffer, links, withs) {
     $0 = cleaner::clean_query(query)

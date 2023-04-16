@@ -1,4 +1,4 @@
-@include "general/process.awk"
+@include "src/main/process.awk"
 @include "tests/assert.awk"
 BEGIN {
     referential["db1"] = "table1,table2"

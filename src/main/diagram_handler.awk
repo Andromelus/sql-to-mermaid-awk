@@ -4,7 +4,7 @@
 # - referential: a multidimensional array like: referential[db] = table1,table2
 #   , etc. Which contains the databases name and the tables contained into it
 # - default_database: a string representing the name of the default database
-@include "general/utils"
+@include "src/main/utils"
 
 function set_default_database(value) {
     default_database = value

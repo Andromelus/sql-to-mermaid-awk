@@ -1,4 +1,4 @@
-@include "general/diagram_handler.awk"
+@include "src/main/diagram_handler.awk"
 @include "tests/assert.awk"
 
 BEGIN {

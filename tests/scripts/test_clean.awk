@@ -1,4 +1,4 @@
-@include "general/clean.awk"
+@include "src/main/clean.awk"
 @include "tests/assert.awk"
 BEGIN {
     one_space = "- -"
