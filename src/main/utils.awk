@@ -75,3 +75,15 @@ function print_withs(withs) {
         print key ": " withs[key]
     }
 }
+
+# https://www.gnu.org/software/gawk/manual/html_node/Readfile-Function.html
+function readfile(file, tmp, save_rs)
+{
+    save_rs = RS
+    RS = "^$"
+    getline tmp < file
+    close(file)
+    RS = save_rs
+
+    return tmp
+}

@@ -16,8 +16,8 @@ BEGIN {
 }
 END {
     d = process::generate(referential, links)
-    print d
-    # utils::print_referential(referential)
-    # utils::print_links(links)
-    # utils::print_withs(withs)
+    html_content = utils::readfile("src/resources/html.html")
+    gsub("{{MERMAID_DIAGRAM}}", d, html_content)
+    print html_content
+
 }
