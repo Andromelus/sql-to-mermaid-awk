@@ -28,3 +28,22 @@ function process_query(query, referential, unknown_target_buffer, links, withs) 
         }
     }
 }
+
+function generate(referential, links) {
+    print "graph LR"
+    for (key in referential) {
+        print "subgraph "key
+        split(referential[key], values, ",")
+        for (v_index in values) {
+            print key"."values[v_index]"("values[v_index]")"
+        }
+        print "end"
+    }
+    
+    for (target in links) {
+        split(links[target], sources, ",")
+        for (s_index in sources) {
+            print sources[s_index] "-->"  target 
+        }
+    }
+}
