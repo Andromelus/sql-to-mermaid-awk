@@ -16,8 +16,13 @@ BEGIN {
 }
 END {
     d = process::generate(referential, links)
-    html_content = utils::readfile("src/resources/html.html")
-    gsub("{{MERMAID_DIAGRAM}}", d, html_content)
-    print html_content
+    if (generate_html != "") {
+        html_content = utils::readfile("src/resources/mermaid-viewer/html.html")
+        gsub("{{CONTENT}}", d, html_content)
+        print html_content
+    } else {
+        print d
+    }
+
 
 }
