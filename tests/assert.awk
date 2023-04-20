@@ -4,8 +4,7 @@ function assert(condition, string)
 {
     __inc_test_count()
     if (! condition) {
-        printf("%s: assertion failed: %s\n",
-            FILENAME, string) > "/dev/stderr"
+        printf("assertion failed: %s\n", string) > "/dev/stderr"
         _assert_exit = 1
         exit 1
     }

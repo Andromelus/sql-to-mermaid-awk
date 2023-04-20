@@ -19,10 +19,14 @@ BEGIN {
     coma_2 = "','"
     coma_3 = "\",\""
 
-    lstrip = "  ---"
-    rstrip = "---   "
+    lstrip = "  +++"
+    rstrip = "+++   "
 
     as = "as ("
+
+    single_line_comment_1 = "start\n--titi\nend"
+    single_line_comment_2 = "start\n#titi\nend"
+    multiple_line_comment = "start/*titi\ntutu*/end/*toto\n*/\nend2/*t*/"
 
 }
 END {
@@ -46,10 +50,15 @@ END {
     assert::assert(cleaner::clean_query(coma_2) == "", "coma_2")
     assert::assert(cleaner::clean_query(coma_3) == "", "coma_3")
 
-    assert::assert(cleaner::clean_query(lstrip) == "---", "lstrip")
-    assert::assert(cleaner::clean_query(rstrip) == "---", "rstrip")
+    # changed to "+" because "--" will be removed (sql comment handling)
+    assert::assert(cleaner::clean_query(lstrip) == "+++", "lstrip")
+    assert::assert(cleaner::clean_query(rstrip) == "+++", "rstrip")
 
     assert::assert(cleaner::clean_query(as) == "as(", "as")
-    assert::print_stats()
 
+    assert::assert(cleaner::__remove_single_line_comments(single_line_comment_1, "--") == "start\nend", "single line --")
+    assert::assert(cleaner::__remove_single_line_comments(single_line_comment_2, "#") == "start\nend", "single line #")
+    assert::assert(cleaner::__remove_multiline_comments(multiple_line_comment) == "startend\nend2", "multi line")
+
+    assert::print_stats()
 }
