@@ -1,0 +1,3 @@
+[submodule "src/resources/mermaid-viewer"]
+	path = src/resources/mermaid-viewer
+	url = https://github.com/Andromelus/mermaid-viewer.git

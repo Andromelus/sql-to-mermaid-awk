@@ -1,0 +1,19 @@
+name: unit-tests
+run-name: ${{ github.ref }} unit tests
+on:
+  pull_request:
+    types: [opened, reopened]
+  push:
+
+jobs:
+  unit-tests-gawk-50:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: setup gawk 5.0.1
+        run: |
+          sudo apt-get update && apt-cache policy gawk  && sudo apt install gawk=1:5.0.1+dfsg-1
+      - name: run tests
+        run: |
+          sh run_tests.sh
