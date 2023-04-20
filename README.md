@@ -8,6 +8,7 @@
     - [Generate the html file to directly view the diagram](#generate-the-html-file-to-directly-view-the-diagram)
 - [Tests](#tests)
 - [Notes about SQL syntax](#notes-about-sql-syntax)
+- [Versions](#versions)
 
 
 # Introduction
@@ -120,3 +121,10 @@ This program has been tests on:
 # Notes about SQL syntax
 
 The program has been initially developped to analyze Impala instructions. However, this is very (very) close to "typical" SQL (Mariadb, MySQL, etc.) syntax, so, unless you do crazy stuff, this program should understand them. If not, please open an issue so it can be fixed.
+
+# Versions
+
+
+| Version | Date       | Summary                            |
+| ------- | ---------- | ---------------------------------- |
+| 1.0.0   | 20/04/2023 | Handles at least HQL/Impala syntax |
