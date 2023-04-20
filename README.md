@@ -1,3 +1,15 @@
+- [Introduction](#introduction)
+- [What it does exactly](#what-it-does-exactly)
+- [Supported syntaxes](#supported-syntaxes)
+- [Usage](#usage)
+  - [Clone the project](#clone-the-project)
+  - [Use it](#use-it)
+    - [Generate simple mermaid instructions](#generate-simple-mermaid-instructions)
+    - [Generate the html file to directly view the diagram](#generate-the-html-file-to-directly-view-the-diagram)
+- [Tests](#tests)
+- [Notes about SQL syntax](#notes-about-sql-syntax)
+
+
 # Introduction
 
 This program reads SQL (more on that bellow) files and generate a diagram of it (also, more on that bellow).
